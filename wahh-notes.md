@@ -1,21 +1,21 @@
-#WAHH NOTES
+# WAHH NOTES
 
-##Chapter 1
+## Chapter 1
 
 1. The core security problem is USERS CAN SUBMIT ARBITRARY INPUT!
 2. Most developers make serious assumptions about the security of the packages that they are using to build applications.
 3. Vulns in a framework affect all the places that framework exists.
 4. Hardened servers and firewalls must allow http/s connections so you have a wide open attack surface to send crafted input. The data sails past the network defenses in the same way ordinary and benign data does.
 
-##Chapter 2
+## Chapter 2
 
-Main security mechanisms:
+### Main security mechanisms:
 
 1. Authentication
 2. Session Management
 3. Access Control
 
-###Handling User Input
+### Handling User Input
 
 1. Reject known bad – the most inferior
 	2. Accept known good – Pretty good but doesn’t account for all situations (e.g. someone that needs a hyphen in their name)
@@ -35,18 +35,18 @@ Main security mechanisms:
 	3. Explore the xss technique on p. 29.
 	4. Don’t forget character mapping based on best fit p. 29. you can use characters with diacritical marks to smuggle characters past the input filters.
 
-###Handling Attackers
+### Handling Attackers
 
 1. Handling Errors
 2. Maintaining audit logs
 3. Alerting Administrators
 4. Reacting to attacks
 
-###Handling Errors
+### Handling Errors
 
 Errors should be handled and not dump verbose messages to the UI that an attacker could leverage to launch an attack.
 
-###Maintaining Audit Logs
+### Maintaining Audit Logs
 
 1. All events realting to the authentication functionality such as successful and failed login, and change of password
 2. Key transactions, such as credit card payments and funds transfers
@@ -55,7 +55,7 @@ Errors should be handled and not dump verbose messages to the UI that an attacke
 5. logs may be flushed to write-once media to ensure their integrity in the event of a successful attack
 6. These audit logs would provide a gold mine for any attacker.
 
-###Alerting Admins
+### Alerting Admins
 
 1. Alerts can’t be so frequent that they are ignored but roll up a lot of signatures (large number of requests from single IP, unusually large amount of funds being transferred, things that can’t normally be modified by the user unless using a proxy) and create one alert that they can react to.
 Reacting to Attacks
@@ -63,7 +63,7 @@ Reacting to Attacks
 	2. Terminate session
 	3. Generally these are to frustrate the attacker to slow them down so admins can take action
 
-##Chapter 3
+## Chapter 3
 
 1. HTTP response – Server header contains a banner indicating the web server software being used and sometimes other details such as installed modules and the server operating system. This may or MAY NOT be accurate.
 2. Other HTTP methods:
@@ -71,11 +71,11 @@ Reacting to Attacks
 	2. OPTIONS – reports the HTTP methods that are available for a particular resource. This usually lists the available methods in the Allow header.
 	3. PUT – attempts to upload the specified resource to the server using the content contained in the body of the request.
 
-###Cookies
+### Cookies
 
 The response Set-Cookie header can include optional attributes. One of the most interesting is HttpOnly, which means that the cookie cannot be directly accessed via client-side JavaScript.
 
-###Status Codes
+### Status Codes
 
 1. General
 	1. 1xx – Informational
@@ -101,7 +101,7 @@ The response Set-Cookie header can include optional attributes. One of the most 
 		1. 500 – Internal Server Error – these could be helpful if your request caused an unhandled exception to happen.
 		2. 503 – Service Unavailable – app not responding.
 
-###Web Functionality
+### Web Functionality
 
 1. HTTP requests can be used to send parameters in four ways.
 	1. In the URL query string
@@ -109,7 +109,7 @@ The response Set-Cookie header can include optional attributes. One of the most 
 	3. File path of rest URLs
 	4. Body of POST requests
 
-###Encoding
+### Encoding
 
 1. URLs are only permitted to contain the printable characters in the US ASCII character set – that is ASCII code in the range of 0x20 to 0x7e inclusive.
 2. Problematic characters in URLs are encoded in the following ways:
@@ -125,7 +125,7 @@ The response Set-Cookie header can include optional attributes. One of the most 
 6. Unicode encoding is primarily of interest when attacking a web application because it can be used sometimes to defeat input validation mechanisms.
 7. Any character can be HTML encoded using its ASCII code in decimal form. &#34; – “ or by using its ASCII code in hexadecimal form prefixed by an x: &#x22; — "
 
-##Chapter 4 – MAPPING THE APPLICATION
+## Chapter 4 – MAPPING THE APPLICATION
 
 Careful when spidering as some applications don’t protect their admin actions and you could end up deleting or wrecking whole parts of an application by following actions and tossing random data at them.
 
