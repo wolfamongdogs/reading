@@ -129,5 +129,6 @@ The response Set-Cookie header can include optional attributes. One of the most 
 
 Careful when spidering as some applications don’t protect their admin actions and you could end up deleting or wrecking whole parts of an application by following actions and tossing random data at them.
 
->**Aside**
->Here is where looking into Damn Vulnerable Web App is important and Docker to set up the DVWA.
+>Here is where looking into Damn Vulnerable Web App, Google Gruyere etc. is would be helpful. Perhaps look into Docker as well for these.
+
+
