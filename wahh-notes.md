@@ -1,5 +1,7 @@
 # WAHH NOTES
 
+These are notes for WAHH 2nd edition. While much of the begining material will be familiar to those who have developed for the web, it is still a good review.
+
 ## Chapter 1
 
 1. The core security problem is USERS CAN SUBMIT ARBITRARY INPUT!
